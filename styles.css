@@ -1,0 +1,140 @@
+:root {
+  --bg0: #05071a;
+  --panel: rgba(11, 16, 46, 0.74);
+  --line: rgba(255, 218, 105, 0.26);
+  --text: rgba(255, 250, 226, 0.94);
+  --muted: rgba(206, 219, 255, 0.68);
+  --accent: #ffda69;
+  --hot: #ff6a3d;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg0);
+  overflow: hidden;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#hud {
+  position: fixed;
+  left: 18px;
+  top: 16px;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+  max-width: min(520px, calc(100vw - 220px));
+  padding-left: 14px;
+  border-left: 3px solid var(--hot);
+}
+
+#hud .title {
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(255, 218, 105, 0.42), 2px 2px 0 rgba(255, 106, 61, 0.45);
+}
+
+#hud .title::after {
+  content: " / svemirska odbrana";
+  color: #77e8ff;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+#hud .hint {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+  text-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
+}
+
+#namePanel {
+  position: fixed;
+  right: 18px;
+  top: 82px;
+  z-index: 20;
+  pointer-events: auto;
+
+  display: grid;
+  grid-template-columns: auto 124px;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 2px solid rgba(255, 218, 105, 0.86);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  user-select: none;
+}
+
+#namePanel label {
+  font-size: 10px;
+  font-weight: 750;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+#namePanel input,
+#namePanel select {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 8px;
+
+  border: 1px solid rgba(255, 218, 105, 0.24);
+  background: rgba(4, 7, 25, 0.72);
+  color: var(--text);
+  outline: none;
+  font-weight: 650;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+#namePanel input::placeholder {
+  color: rgba(204, 219, 205, 0.42);
+}
+
+#namePanel select {
+  cursor: pointer;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+#namePanel input:focus,
+#namePanel select:focus {
+  border-color: rgba(255, 218, 105, 0.82);
+  box-shadow: 0 0 0 3px rgba(255, 218, 105, 0.14);
+}
+
+@media (max-width: 680px) {
+  #hud {
+    max-width: calc(100vw - 30px);
+  }
+
+  #namePanel {
+    top: 82px;
+    right: 12px;
+    bottom: auto;
+    grid-template-columns: auto 108px;
+  }
+}

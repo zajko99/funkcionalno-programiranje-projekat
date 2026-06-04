@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pilici osvajaci - FP Projekat</title>
+    <link rel="stylesheet" href="./styles.css?v=2" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="hud">
+      <div class="title">Pilici osvajaci</div>
+      <div class="hint">
+        Kretanje: WASD / Strelice &middot; Pucanje nagore: Space / Levi klik &middot; Restart: R
+      </div>
+    </div>
+
+    <div id="namePanel">
+      <label for="playerName">Pilot</label>
+      <input
+        id="playerName"
+        type="text"
+        maxlength="16"
+        placeholder="npr. Zlatko"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <label for="playerSkin">Letelica</label>
+      <select id="playerSkin">
+        <option value="dart">Raketa</option>
+        <option value="wing" selected>Lovac</option>
+        <option value="orbiter">Tanjir</option>
+      </select>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
